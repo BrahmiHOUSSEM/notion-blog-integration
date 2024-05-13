@@ -46,7 +46,7 @@ export default function Index() {
           </h3>
           <p>
             Absolutely! Here's a tailored version for your portfolio: Hello
-            there! I'm [Your Name], a physicist by training who has ventured
+            there! I'm Brahmi HOUSSEM, a physicist by training who has ventured
             into the world of web development. Armed with a Master's degree in
             Physics, I embarked on a journey of self-teaching to master HTML,
             CSS, JavaScript, React.js, Next.js, Tailwind CSS, and Bootstrap.
