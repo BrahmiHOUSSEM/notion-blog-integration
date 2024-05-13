@@ -49,7 +49,7 @@ export async function getStaticProps({ params: { slug }, preview }) {
         const res = await fetch(
           `https://api.twitter.com/1/statuses/oembed.json?id=${tweetId}`
         )
-        const json = await res.json()
+        const json: any = await res.json()
         properties.html = json.html.split('<script')[0]
         post.hasTweet = true
       } catch (_) {
@@ -95,7 +95,7 @@ const RenderPost = ({ post, redirect, preview }) => {
       key: string
       isNested?: boolean
       nested: string[]
-      children: React.ReactFragment
+      children: any
     }
   } = {}
 
@@ -222,7 +222,7 @@ const RenderPost = ({ post, redirect, preview }) => {
             listTagName = null
           }
 
-          const renderHeading = (Type: string | React.ComponentType) => {
+          const renderHeading = (Type: any | React.ComponentType) => {
             toRender.push(
               <Heading key={id}>
                 <Type key={id}>{textBlock(properties.title, true, id)}</Type>

@@ -8,7 +8,7 @@ export default async function loadTable(collectionBlock: any, isPosts = false) {
 
   const { value } = collectionBlock
   let table: any = {}
-  const col = await queryCollection({
+  const col: any = await queryCollection({
     collectionId: value.collection_id,
     collectionViewId: value.view_ids[0],
   })
@@ -29,7 +29,7 @@ export default async function loadTable(collectionBlock: any, isPosts = false) {
       row.id = entry.value.id
     }
 
-    schemaKeys.forEach(key => {
+    schemaKeys.forEach((key) => {
       // might be undefined
       let val = props[key] && props[key][0][0]
 

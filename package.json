@@ -26,6 +26,10 @@
     "uuid": "8.1.0"
   },
   "devDependencies": {
+    "os": "^0.1.2",
+    "crypto": "^1.0.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
     "@types/katex": "0.11.0",
     "@types/node": "^20.12.11",
     "@types/react": "^18.3.1",
