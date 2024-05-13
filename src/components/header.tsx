@@ -6,9 +6,9 @@ import styles from '../styles/header.module.css'
 
 const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Home', page: '/' },
-  { label: 'Blog', page: '/blog' },
+  { label: 'Articles', page: '/articles' },
+  { label: 'Projects', page: '/projects' },
   { label: 'Contact', page: '/contact' },
-  { label: 'Source Code', link: 'https://github.com/ijjk/notion-blog' },
 ]
 
 const ogImageUrl = 'https://notion-blog.now.sh/og-image.png'
@@ -34,10 +34,11 @@ const Header = ({ titlePre = '' }) => {
         {navItems.map(({ label, page, link }) => (
           <li key={label}>
             {page ? (
-              <Link href={page}>
-                <a className={pathname === page ? 'active' : undefined}>
-                  {label}
-                </a>
+              <Link
+                href={page}
+                className={pathname === page ? 'active' : undefined}
+              >
+                {label}
               </Link>
             ) : (
               <ExtLink href={link}>{label}</ExtLink>

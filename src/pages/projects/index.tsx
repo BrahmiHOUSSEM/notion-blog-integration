@@ -11,11 +11,11 @@ import {
 } from '../../lib/blog-helpers'
 import { textBlock } from '../../lib/notion/renderers'
 import getNotionUsers from '../../lib/notion/getNotionUsers'
-import getBlogIndex from '../../lib/notion/getBlogIndex'
+import getBlogIndex from '../../lib/notion/getProjectsIndex'
 
 export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex()
-
+  console.log(postsTable)
   const authorsToGet: Set<string> = new Set()
   const posts: any[] = Object.keys(postsTable)
     .map((slug) => {
@@ -56,43 +56,52 @@ const Index = ({ posts = [], preview }) => {
           <div className={blogStyles.previewAlert}>
             <b>Note:</b>
             {` `}Viewing in preview mode{' '}
-            <Link href={`/api/clear-preview`}>
+            <Link href={`/api/clear-preview`} legacyBehavior>
               <button className={blogStyles.escapePreview}>Exit Preview</button>
             </Link>
           </div>
         </div>
       )}
       <div className={`${sharedStyles.layout} ${blogStyles.blogIndex}`}>
-        <h1>My Notion Blog</h1>
+        <h1>My Projects</h1>
         {posts.length === 0 && (
           <p className={blogStyles.noPosts}>There are no posts yet</p>
         )}
         {posts.map((post) => {
           return (
-            <div className={blogStyles.postPreview} key={post.Slug}>
-              <h3>
+            <div
+              className={blogStyles.postPreview}
+              key={post.Slug}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '1rem',
+              }}
+            >
+              <h4>
                 <span className={blogStyles.titleContainer}>
                   {!post.Published && (
                     <span className={blogStyles.draftBadge}>Draft</span>
                   )}
-                  <Link href="/blog/[slug]" as={getBlogLink(post.Slug)}>
-                    <a>{post.Page}</a>
-                  </Link>
+                  <a target="_blank" href={post.Link}>
+                    {post.Page}
+                  </a>
                 </span>
-              </h3>
-              {post.Authors.length > 0 && (
-                <div className="authors">By: {post.Authors.join(' ')}</div>
+              </h4>
+              {post.Authors.length && (
+                <div className="authors" style={{ fontSize: '.8rem' }}>
+                  By: {post.Authors}
+                </div>
               )}
               {post.Date && (
-                <div className="posted">Posted: {getDateStr(post.Date)}</div>
+                <div
+                  className="posted"
+                  style={{ fontSize: '.8rem', margin: '0' }}
+                >
+                  Posted: {getDateStr(post.Date)}
+                </div>
               )}
-              <p>
-                {(!post.preview || post.preview.length === 0) &&
-                  'No preview available'}
-                {(post.preview || []).map((block, idx) =>
-                  textBlock(block, true, `${post.Slug}${idx}`)
-                )}
-              </p>
             </div>
           )
         })}

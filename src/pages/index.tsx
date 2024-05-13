@@ -8,57 +8,72 @@ export default function Index() {
     <>
       <Header titlePre="Home" />
       <div className={sharedStyles.layout}>
-        <img
-          src="/vercel-and-notion.png"
-          height="85"
-          width="250"
-          alt="Vercel + Notion"
-        />
-        <h1>My Notion Blog</h1>
-        <h2>
-          Blazing Fast Notion Blog with Next.js'{' '}
-          <ExtLink
-            href="https://github.com/vercel/next.js/issues/9524"
-            className="dotted"
-            style={{ color: 'inherit' }}
-          >
-            SSG
-          </ExtLink>
-        </h2>
+        <h1>Brahmi HOUSSEM</h1>
+        <h2>FRONT-END DEVELOPER</h2>
 
         <Features />
-
-        <div className="explanation">
+        <div className="explanation" style={{ textAlign: 'justify' }}>
+          <h3
+            style={{
+              textAlign: 'center',
+              marginTop: '5rem',
+              fontSize: '1.8rem',
+              marginBottom: '0',
+            }}
+          >
+            Introducing my dynamic portfolio
+          </h3>
           <p>
-            This is a statically generated{' '}
-            <ExtLink href="https://nextjs.org">Next.js</ExtLink> site with a{' '}
-            <ExtLink href="https://notion.so">Notion</ExtLink> powered blog that
-            is deployed with <ExtLink href="https://vercel.com">Vercel</ExtLink>
-            . It leverages some upcoming features in Next.js like{' '}
-            <ExtLink href="https://github.com/vercel/next.js/issues/9524">
-              SSG support
-            </ExtLink>{' '}
-            and{' '}
-            <ExtLink href="https://github.com/vercel/next.js/issues/8626">
-              built-in CSS support
-            </ExtLink>{' '}
-            which allow us to achieve all of the benefits listed above including
-            blazing fast speeds, great local editing experience, and always
-            being available!
+            Introducing my dynamic portfolio, seamlessly connected to my Notion
+            blog for real-time updates. With each new project or article
+            acquired, this portfolio evolves, ensuring you're always in sync
+            with my latest endeavors. Experience rich content displays,
+            effortless navigation, and personalized viewing options, all powered
+            by the seamless integration between Notion and my portfolio.
+          </p>
+        </div>
+
+        <div className="explanation" style={{ textAlign: 'justify' }}>
+          <h3
+            style={{
+              textAlign: 'center',
+              marginTop: '5rem',
+              fontSize: '1.8rem',
+              marginBottom: '0',
+            }}
+          >
+            About Me
+          </h3>
+          <p>
+            Absolutely! Here's a tailored version for your portfolio: Hello
+            there! I'm [Your Name], a physicist by training who has ventured
+            into the world of web development. Armed with a Master's degree in
+            Physics, I embarked on a journey of self-teaching to master HTML,
+            CSS, JavaScript, React.js, Next.js, Tailwind CSS, and Bootstrap.
+            Through relentless dedication and a thirst for knowledge, I've not
+            only honed my skills but also created a portfolio of projects that
+            showcase my expertise in web development.
           </p>
 
           <p>
-            Get started by creating a new page in Notion and clicking the deploy
-            button below. After you supply your token and the blog index id (the
-            page's id in Notion) we will automatically create the table for you!
-            See{' '}
-            <ExtLink href="https://github.com/ijjk/notion-blog#getting-blog-index-and-token">
-              here in the readme
-            </ExtLink>{' '}
-            for finding the new page's id. To get your token from Notion, login
-            and look for a cookie under www.notion.so with the name `token_v2`.
-            After finding your token and your blog's page id you should be good
-            to go!
+            My passion for understanding the intricacies of the universe has
+            seamlessly merged with my enthusiasm for crafting digital solutions.
+            From designing responsive layouts to implementing dynamic
+            functionalities, I've delved deep into the world of front-end
+            development, constantly pushing boundaries and exploring new
+            technologies.
+          </p>
+          <p>
+            In addition to my projects, I've also contributed articles to share
+            my insights and experiences in web development. Whether it's
+            discussing best practices, sharing tips and tricks, or exploring
+            emerging trends, I'm dedicated to fostering a community of learning
+            and collaboration within the web development sphere.
+          </p>
+          <p>
+            Join me as I continue to expand my skills, tackle new challenges,
+            and make meaningful contributions to the ever-evolving landscape of
+            web development.
           </p>
         </div>
       </div>

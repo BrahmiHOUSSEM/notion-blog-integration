@@ -22,10 +22,10 @@ export async function getStaticProps({ params: { slug }, preview }) {
   // if we can't find the post or if it is unpublished and
   // viewed without preview mode then we just redirect to /blog
   if (!post || (post.Published !== 'Yes' && !preview)) {
-    console.log(`Failed to find post for slug: ${slug}`)
+    console.log(`Failed to find Article for slug: ${slug}`)
     return {
       props: {
-        redirect: '/blog',
+        redirect: '/articles',
         preview: false,
       },
       unstable_revalidate: 5,
@@ -37,6 +37,8 @@ export async function getStaticProps({ params: { slug }, preview }) {
   for (let i = 0; i < postData.blocks.length; i++) {
     const { value } = postData.blocks[i]
     const { type, properties } = value
+    if (type === 'image') {
+    }
     if (type == 'tweet') {
       const src = properties.source[0][0]
       // parse id from https://twitter.com/_ijjk/status/TWEET_ID format
@@ -144,7 +146,7 @@ const RenderPost = ({ post, redirect, preview }) => {
           <div className={blogStyles.previewAlert}>
             <b>Note:</b>
             {` `}Viewing in preview mode{' '}
-            <Link href={`/api/clear-preview?slug=${post.Slug}`}>
+            <Link href={`/api/clear-preview?slug=${post.Slug}`} legacyBehavior>
               <button className={blogStyles.escapePreview}>Exit Preview</button>
             </Link>
           </div>
@@ -152,7 +154,7 @@ const RenderPost = ({ post, redirect, preview }) => {
       )}
       <div className={blogStyles.post}>
         <h1>{post.Page || ''}</h1>
-        {post.Authors.length > 0 && (
+        {post.Authors && (
           <div className="authors">By: {post.Authors.join(' ')}</div>
         )}
         {post.Date && (

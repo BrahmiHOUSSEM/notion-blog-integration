@@ -1,56 +1,76 @@
-import Lightning from './svgs/lightning'
-import Jamstack from './svgs/jamstack'
-import Wifi from './svgs/wifi'
-import Lighthouse from './svgs/lighthouse'
-import Plus from './svgs/plus'
+import Html from './svgs/htmlIcon'
+import CssIcon from './svgs/CssIcon'
+import JS from './svgs/JS'
+import ReactJs from './svgs/ReactJs'
+import TailWindCss from './svgs/TailWindCss'
+import NextJs from './svgs/NextJs'
 import Notion from './svgs/notion'
-import Edit from './svgs/edit'
-import Scroll from './svgs/scroll'
+import BoostStrap from './svgs/BoostStrap'
 
 const features = [
   {
-    text: 'Blazing fast',
-    icon: Lightning,
+    text: 'Hypertext Markup Language',
+    icon: Html,
   },
   {
-    text: 'JAMstack based',
-    icon: Jamstack,
+    text: 'Cascading Style Sheets',
+    icon: CssIcon,
   },
   {
-    text: 'Always available',
-    icon: Wifi,
+    text: 'JavaScript',
+    icon: JS,
   },
   {
-    text: 'Customizable',
-    icon: Edit,
+    text: 'React (JavaScript library) ',
+    icon: ReactJs,
   },
   {
-    text: 'Incremental SSG',
-    icon: Plus,
+    text: 'Tailwind CSS (CSS framework)',
+    icon: TailWindCss,
   },
   {
-    text: 'MIT Licensed',
-    icon: Scroll,
+    text: 'Bootstrap (CSS framework)',
+    icon: BoostStrap,
   },
   {
-    text: 'Edit via Notion',
+    text: 'Notion (Workspace and productivity tool)',
     icon: Notion,
   },
   {
-    text: 'Great scores',
-    icon: Lighthouse,
+    text: 'NextJs (React framework)',
+    icon: NextJs,
   },
 ]
 
 const Features = () => (
-  <div className="features">
-    {features.map(({ text, icon: Icon }) => (
-      <div className="feature" key={text}>
-        {Icon && <Icon height={24} width={24} />}
-        <h4>{text}</h4>
-      </div>
-    ))}
-  </div>
+  <>
+    <h3
+      style={{
+        textAlign: 'center',
+        marginTop: '5rem',
+        fontSize: '1.8rem',
+        marginBottom: '0',
+      }}
+    >
+      My Skills
+    </h3>
+
+    <div
+      className="features"
+      style={{ textAlign: 'center', marginTop: '1rem' }}
+    >
+      {features.map(({ text, icon: Icon }) => (
+        <div className="feature" key={text}>
+          {Icon && <Icon height={24} width={24} />}
+          <h4
+            style={{ fontSize: '.8rem', fontWeight: 'normal', color: '#333' }}
+          >
+            {text}
+          </h4>
+        </div>
+      ))}
+    </div>
+  </>
 )
 
 export default Features

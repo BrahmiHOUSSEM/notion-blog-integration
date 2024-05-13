@@ -358,19 +358,24 @@ code {
 }
 
 footer {
-  padding: 2em 0;
+  padding: 3em 0;
+  margin: 3rem 0;
+  border-top: 1px solid #eee;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  .logoLink {
+    display: flex;
+    align-items: center;
+  }
 }
 
-footer img {
-  display: block;
-  margin: 0.5rem auto;
-}
-
-footer span:nth-child(3) {
-  color: #777777;
-}
-
-footer span:nth-child(3) a {
-  color: inherit;
+footer > * {
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+    transition: ease-in-out 0.3s;
+  }
 }
